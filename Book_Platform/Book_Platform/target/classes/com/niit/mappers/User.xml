@@ -1,1 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.niit.mapping.UserMapping">
+
+	<select id="selectById" resultType="com.niit.pojo.User">
+		select * from user where id = #{id}
+	</select>
+
+	<select id="selectAllUser" resultType="com.niit.pojo.User">
+		select * from User
+	</select>
+
+</mapper>
