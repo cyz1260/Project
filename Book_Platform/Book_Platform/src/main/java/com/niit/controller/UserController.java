@@ -21,7 +21,7 @@ public class UserController {
 	public String showUser(Map<String, Object> data) {
 		User user = userservice.getUserInfo();
 		data.put("user", user);
-		return "/WEB-INF/jsps/main.jsp";
+		return "main";
 		
 	}
 
