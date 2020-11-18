@@ -9,7 +9,7 @@
 <body>
 <h1>图书交易平台</h1>
 ${user.id}<br>
-${user.username}
+${user.username}<br>
 ${user.intro}
 </body>
 </html>
