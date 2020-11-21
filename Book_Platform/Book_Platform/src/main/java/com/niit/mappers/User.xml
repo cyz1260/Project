@@ -44,5 +44,30 @@
 	<delete id="DeleteOrders">
 		delete from orders where orderid = #{orderid}
 	</delete>
+	
+	
+	<insert id="SellBooks">
+		insert into sbooklist(suserid,sbookname,sbookprice,sbookcategory,sbookdescription,sbookimga,sbookimgb,sbookstate)values(#{suserid},#{sbookname},#{sbookprice},#{sbookcategory},#{sbookdescription},#{sbookimga},#{sbookimgb},"待审核")
+	</insert>
+	
+	<insert id="AddAddress">
+		insert into useraddress(auserid,ausername,ausertel,address) values(#{auserid},#{ausername},#{ausertel},#{address})
+	</insert>
+	
+	<select id="SelectUserAddress" resultType="UserAddress">
+		select * from useraddress where auserid = #{auserid}
+	</select>
+	
+	<update id="UpdateUserAddress">
+		update useraddress set ausername = #{ausername},ausertel = #{ausertel},address = #{address} where auseraddressid = #{auseraddressid}
+	</update>
+	
+	<delete id="DeleteUserAddress">
+		delete from useraddress where auseraddressid = #{auseraddressid}
+	</delete>
+	
+	<select id="SelectUserAddressById" resultType="UserAddress">
+		select * from useraddress where auseraddressid = #{auseraddressid}
+	</select>
 
 </mapper>

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.niit.pojo.Orders;
 import com.niit.pojo.SBookList;
 import com.niit.pojo.User;
+import com.niit.pojo.UserAddress;
 
 public interface UserMapping {
 	
@@ -28,5 +29,18 @@ public interface UserMapping {
 	public List<Orders> FindAllOrders(String ouserid);
 	
 	public void DeleteOrders(String orderid);
+	
+	
+	public void SellBooks(SBookList sBookList);
+	
+	public void AddAddress(@Param("auserid")String auserid,@Param("ausername")String ausername,@Param("ausertel")String ausertel,@Param("address")String address);
+	
+	public List<UserAddress> SelectUserAddress(String auserid);
+	
+	public void UpdateUserAddress(@Param("ausername")String ausername, @Param("ausertel")String ausertel, @Param("address")String address, @Param("auseraddressid")String auseraddressid);
+	
+	public void DeleteUserAddress(String auseraddressid);
+	
+	public UserAddress SelectUserAddressById (String auseraddressid);
 
 }

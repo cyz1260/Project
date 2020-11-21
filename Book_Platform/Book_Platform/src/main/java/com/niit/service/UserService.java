@@ -9,6 +9,7 @@ import com.niit.mapping.UserMapping;
 import com.niit.pojo.Orders;
 import com.niit.pojo.SBookList;
 import com.niit.pojo.User;
+import com.niit.pojo.UserAddress;
 
 @Service
 public class UserService {
@@ -57,4 +58,28 @@ public class UserService {
 		userMapping.DeleteOrders(orderid);
 	}
 	
+	
+	public void SellBooks(SBookList sBookList) {
+		userMapping.SellBooks(sBookList);
+	}
+	
+	public void AddAddress(String auserid,String ausername,String ausertel,String address) {
+		userMapping.AddAddress(auserid, ausername, ausertel, address);
+	}
+	
+	public List<UserAddress> SelectUserAddress(String auserid) {
+		return userMapping.SelectUserAddress(auserid);
+	}
+	
+	public void UpdateUserAddress(String ausername, String ausertel, String address, String auseraddressid) {
+		userMapping.UpdateUserAddress(ausername, ausertel, address, auseraddressid);
+	}
+	
+	public void DeleteUserAddress(String auseraddressid) {
+		userMapping.DeleteUserAddress(auseraddressid);
+	}
+	
+	public UserAddress SelectUserAddressById (String auseraddressid) {
+		return userMapping.SelectUserAddressById(auseraddressid);
+	}
 }

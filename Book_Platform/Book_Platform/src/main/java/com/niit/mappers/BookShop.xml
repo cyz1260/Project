@@ -8,5 +8,21 @@
 	<select id="SelectByBookname" resultType="SBookList">
 		select * from sbooklist where sbookname like "%"#{sbookid}"%"
 	</select>
+	
+	<select id="SelectAllBooks" resultType="SBookList">
+		select * from sbooklist where sbookstate = "审核成功"
+	</select>
+	
+	<select id="SelectByBookCategory" resultType="SBookList">
+		select * from sbooklist where sbookcategory = #{sbookcategory} and sbookstate = "审核成功"
+	</select>
+	
+	<select id="SelectByBookId" resultType="SBookList">
+		select * from sbooklist where sbookid = #{sbookid}
+	</select>
+	
+	<insert id="BuyOrder">
+		insert into orders(ouserid,ousername,ousertel,ouseraddress,obookname,obookprice,obookdescription,obookimga)values(#{ouserid},#{ousername},#{ousertel},#{ouseraddress},#{obookname},#{obookprice},#{obookdescription},#{obookimga})
+	</insert>
 
 </mapper>

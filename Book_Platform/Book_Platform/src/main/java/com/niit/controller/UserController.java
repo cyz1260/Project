@@ -1,10 +1,14 @@
   package com.niit.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +17,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.niit.pojo.Orders;
 import com.niit.pojo.SBookList;
 import com.niit.pojo.User;
+import com.niit.pojo.UserAddress;
 import com.niit.service.UserService;
 
 @Controller
@@ -142,6 +150,79 @@ public class UserController {
 	public String DeleteOrder(String orderid,String userid) {
 		userService.DeleteOrders(orderid);
 		return "redirect:/user/findallorders?userid="+userid;
+	}
+	
+	
+	@RequestMapping("/gosellbooks")
+	public String GoSellBooks(String userid,Map<String, Object> data) {
+		data.put("userid",userid);
+		List<BookCategory> list = adminService.SelectAllCategory();
+		data.put("bookcategory", list);
+		return "sellbooks";
+	}
+	
+	@RequestMapping(value = "/sellbooks")
+	public String SellBooks(SBookList sBookList,HttpServletRequest request) throws Exception, IOException {
+		int i = 1;
+        //将当前上下文初始化给  CommonsMutipartResolver （多部分解析器）
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+        //检查form中是否有enctype="multipart/form-data"
+        if (multipartResolver.isMultipart(request)) {
+            //将request变成多部分request 
+            MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
+            //获取multiRequest 中所有的文件名
+            Iterator iter = multiRequest.getFileNames();
+            while (iter.hasNext()) {
+                String fileName = (String) iter.next();
+                List<MultipartFile> fileList = multiRequest.getFiles(fileName);
+                if (fileList.size() > 0) {
+                    Iterator<MultipartFile> fileIte = fileList.iterator();
+                    while (fileIte.hasNext()) {
+                        MultipartFile multipartFile = fileIte.next();
+                        String originalFilename = multipartFile.getOriginalFilename();
+                        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+                        Date date = new Date();
+                        String newname = date.getTime() + suffix;
+                        String realpath = request.getServletContext().getRealPath("/bookimgs");
+                        String path = realpath + "\\" + newname;
+                        //上传
+                        multipartFile.transferTo(new File(path));
+                        String sqlpath = "bookimgs/" + newname;
+                        if (i == 1) {
+                            sBookList.setSbookimga(sqlpath);
+                        }
+                        if (i == 2) {
+                            sBookList.setSbookimgb(sqlpath);
+                        }
+                        i++;
+                    }
+                    userService.SellBooks(sBookList);
+                }
+            }
+        }
+		
+		return "main";
+	}
+	
+	
+	@RequestMapping("/manageaddress")
+	public String FindUserAddress(String userid,Model model) {
+		List<UserAddress> list = userService.SelectUserAddress(userid);
+		model.addAttribute("useraddress",list);
+		model.addAttribute("userid", userid);
+		return "addaddress";		
+	}
+	
+	@RequestMapping("/updateuseraddress")
+	public String UpdateUserAddress(String ausername, String ausertel, String address, String auseraddressid,String userid) {
+		userService.UpdateUserAddress(ausername, ausertel, address, auseraddressid);
+		return "redirect:/user/manageaddress?userid="+userid;
+	}
+	
+	@RequestMapping("/deleteuseraddress")
+	public String DeleteUserAddress(String auseraddressid,String userid) {
+		userService.DeleteUserAddress(auseraddressid);
+		return "redirect:/user/manageaddress?userid="+userid;
 	}
 
 }
