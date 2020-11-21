@@ -16,6 +16,27 @@ public class UserService {
 	@Autowired
 	private UserMapping userMapping;
 	
+	public void RegisterUser(User newuser) {
+		userMapping.RegisterUser(newuser);
+	}
+	
+	public User UserLogin(String userid) {
+		return userMapping.SelectUser(userid);
+	}
+	
+	public User FindUserInfo(String userid) {
+		return userMapping.SelectUser(userid);
+	}
+	
+	public void UpdateUserInfo(String userid,String username,String gender,String telnumber) {
+		userMapping.UpdateUserInfo(userid, username, gender, telnumber);
+	}
+	
+	public void UpdateUserPassword(String usernewpassword,String userid) {
+		userMapping.UpdateUserPassword(usernewpassword, userid);
+	}
+	
+	
 	public List<SBookList> SelectUserSellBooks(String suserid) {
 		return userMapping.SelectUserSellBooks(suserid);
 	}
