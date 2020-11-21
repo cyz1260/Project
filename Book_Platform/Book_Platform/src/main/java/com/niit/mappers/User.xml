@@ -4,12 +4,28 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.niit.mapping.UserMapping">
 
-	<select id="selectById" resultType="com.niit.pojo.User">
-		select * from user where id = #{id}
+	<select id="SelectUserSellBooks" resultType="SBookList">
+		select * from sbooklist where suserid = #{suserid}
 	</select>
-
-	<select id="selectAllUser" resultType="com.niit.pojo.User">
-		select * from User
+	
+	<select id="SelectBookById" resultType="SBookList">
+		select * from sbooklist where sbookid = #{sbookid}
 	</select>
+	
+	<delete id="DeleteOneBook">
+		delete from sbooklist where sbookid = #{sbookid}
+	</delete>
+	
+	<update id="UpdateOneBook">
+		update sbooklist set sbookname = #{sbookname},sbookprice = #{sbookprice} where sbookid = #{sbookid}
+	</update>
+	
+	<select id="FindAllOrders" resultType="Orders">
+		select * from orders where ouserid = #{ouserid}
+	</select>
+	
+	<delete id="DeleteOrders">
+		delete from orders where orderid = #{orderid}
+	</delete>
 
 </mapper>
