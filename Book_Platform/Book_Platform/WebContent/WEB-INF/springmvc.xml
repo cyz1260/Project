@@ -19,7 +19,13 @@
     <property name="suffix" value=".jsp"></property>
     </bean>
     
-    <!--  <mvc:resources location="" mapping=""></mvc:resources> -->
-	
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    
+    <mvc:resources mapping="/bookimgs/**" location="/bookimgs/"/>
+    <mvc:resources mapping="/resources/css/**" location="resources/css/"/>
+    <mvc:resources mapping="/resources/fonts/**" location="resources/fonts/"/>
+    <mvc:resources mapping="/resources/img/**" location="resources/img/"/>
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/resources/js/**" location="resources/js/"/>
 
 </beans>
