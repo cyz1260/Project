@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.niit.mapping.AdminMapping">
+	
+	<select id="SelectAdmin" resultType="admin">
+		select * from admininfo where adminid=#{adminid}
+	</select>
+	
+	<insert id="AddCategory">
+		insert into bookcategory(categoryname) values(#{categoryname})
+	</insert>
+	
+	<delete id="DeleteCategory">
+		delete from bookcategory where categoryid=#{categoryid}
+	</delete>
+	
+	<select id="SelectAllCategory" resultType="bookcategory">
+		select * from bookcategory
+	</select>
+	
+	<update id="UpdateUserState">
+		update usersinfo set userstate = "恢复" where userid = #{userid}
+	</update>
+	
+	<update id="UpdateUserStateON">
+		update usersinfo set userstate = "禁用" where userid = #{userid}
+	</update>
+	
+	<select id="CheckSBookList" resultType="sbooklist">
+		select * from sbooklist where sbookstate = "待审核"
+	</select>
+	
+	<update id="UpdateSuccess">
+		update sbooklist set sbookstate = "审核成功" where sbookid = #{sbookid}
+	</update>
+	
+	<update id="UpdateFail">
+		update sbooklist set sbookstate = "审核失败" where sbookid = #{sbookid}
+	</update>
+	
+    <select id="SelectSBookState" resultType="SBookList">
+		select * from sbooklist where sbookid = #{sbookid}
+	</select>
+
+	<select id="SelectAllUser" resultType="User">
+		select * from usersinfo
+	</select>
+	
+	
+
+</mapper>

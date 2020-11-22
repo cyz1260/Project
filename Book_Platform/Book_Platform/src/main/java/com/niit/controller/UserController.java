@@ -21,10 +21,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.niit.pojo.BookCategory;
 import com.niit.pojo.Orders;
 import com.niit.pojo.SBookList;
 import com.niit.pojo.User;
 import com.niit.pojo.UserAddress;
+import com.niit.service.AdminService;
 import com.niit.service.UserService;
 
 @Controller
@@ -32,6 +34,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private AdminService adminService;
 	
 	
 	@RequestMapping("/toregister")
