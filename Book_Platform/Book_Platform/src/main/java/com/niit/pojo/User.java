@@ -1,7 +1,7 @@
 package com.niit.pojo;
 
 public class User {
-	private int userid;
+	private String userid;
 	private String userpassword;
 	private String username;
 	private String gender;
@@ -13,7 +13,7 @@ public class User {
 	public User() {
 	}
 	
-	public User(int userid, String userpassword, String username, String gender, String telnumber, String userstate) {
+	public User(String userid, String userpassword, String username, String gender, String telnumber, String userstate) {
 		this.userid = userid;
 		this.userpassword = userpassword;
 		this.username = username;
@@ -22,10 +22,10 @@ public class User {
 		this.userstate = userstate;
 	}
 	
-	public int getUserid() {
+	public String getUserid() {
 		return userid;
 	}
-	public void setUserid(int userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
 	public String getUserpassword() {

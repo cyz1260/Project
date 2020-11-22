@@ -30,6 +30,7 @@ import com.niit.service.AdminService;
 import com.niit.service.UserService;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -44,10 +45,21 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/userregister",method = RequestMethod.POST)
-	public String RegisterUser(User newuser) {
-		newuser.setUserstate("禁用");
-		userService.RegisterUser(newuser);
-		return "main";
+	public String RegisterUser(User newuser,HttpServletResponse response) throws IOException {
+		
+		User user = userService.FindUserInfo(newuser.getUserid());
+		
+		if (user == null) {
+			newuser.setUserstate("禁用");
+			userService.RegisterUser(newuser);
+			return "main";
+		}else {
+			response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language=\"javascript\">alert('该账号已经被注册！')</script>");
+            return null;
+		}
+		
 	}
 	
 	@RequestMapping("/gologin")
@@ -96,7 +108,7 @@ public class UserController {
 	@RequestMapping("/updateuserinfo")
 	public String UpdateUserInfo(String userid,String username,String gender,String telnumber) {
 		userService.UpdateUserInfo(userid, username, gender, telnumber);
-		return"main";
+		return "redirect:/user//finduserinfo?userid="+userid;
 	}
 	
 	@RequestMapping("/goupdatepassword")
@@ -166,7 +178,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/sellbooks")
-	public String SellBooks(SBookList sBookList,HttpServletRequest request) throws Exception, IOException {
+	public String SellBooks(SBookList sBookList,String userid,HttpServletRequest request) throws Exception, IOException {
 		int i = 1;
         //将当前上下文初始化给  CommonsMutipartResolver （多部分解析器）
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
@@ -205,7 +217,7 @@ public class UserController {
             }
         }
 		
-		return "main";
+		return "redirect:/user/findusersellbooks?userid="+userid;
 	}
 	
 	

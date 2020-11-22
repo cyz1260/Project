@@ -20,7 +20,7 @@
 	<div class="bookshopmain">
 
 		<div class="container">
-			<h2 class="h2color">奶油书店</h2>
+			<a href="<%=request.getContextPath()%>/user/gomain?userid=${userid}"><h2 class="h2color">奶油书店</h2></a>
 			<div class="searchbook">
 				<form action="<%=request.getContextPath()%>/bookshop/searchbooks">
 					<input type="hidden" name="userid" value="${userid}">

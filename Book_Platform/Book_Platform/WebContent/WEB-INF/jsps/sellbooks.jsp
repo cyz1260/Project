@@ -98,7 +98,7 @@
 				<label>书籍描述:</label>
 				<input style="height: 15px;" type="text" name="sbookdescription" required="required"/>
 				<label>书籍图片:</label> <input style="height: 15px;" type="file" name="file" multiple="" required="required"><br>
-
+				<input type="hidden" name="userid" value="${userid}">
 				<input type="submit" value="上传" />
 				</form>
 						</div>

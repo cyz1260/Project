@@ -6,7 +6,7 @@
 <mapper namespace="com.niit.mapping.BookShopMapping">
 	
 	<select id="SelectByBookname" resultType="SBookList">
-		select * from sbooklist where sbookname like "%"#{sbookid}"%"
+		select * from sbooklist where sbookname like "%"#{sbookid}"%" and sbookstate ="审核成功"
 	</select>
 	
 	<select id="SelectAllBooks" resultType="SBookList">

@@ -68,6 +68,6 @@ public class BookShopController {
 	@RequestMapping("/buyorder")
 	public String BuyOrder(Orders orders) {
 		bookShopService.BuyOrder(orders);
-		return "main";
+		return "redirect:/user/findallorders?userid="+orders.getOuserid();
 	}
 }

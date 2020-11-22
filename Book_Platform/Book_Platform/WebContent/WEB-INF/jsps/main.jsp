@@ -74,7 +74,7 @@
 							<span style="margin: 10px; margin-right: 50px;">万般皆下品，唯有读书高</span>
 						</h6>
 						<p style="margin-top: 60px;" class="probootstrap-animate">
-							<a href="User/gologin" class="btn btn-primary btn-lg">立即买书</a>
+							<a href="<%=request.getContextPath()%>/bookshop/gobookshop?userid=${user.userid}" class="btn btn-primary btn-lg">立即买书</a>
 						</p>
 					</div>
 				</div>
@@ -91,7 +91,7 @@
 							<p>书中自有黄金屋,书中自有颜如玉</p>
 							<br>
 							<p>
-								<a href="activitys/getactivitylist">了解更多</a>
+								<a href="">了解更多</a>
 							</p>
 						</div>
 					</div>
@@ -103,7 +103,7 @@
 							<p>读书之乐何处寻，数点梅花天地间</p>
 							<br>
 							<p>
-								<a href="activitys/getactivitylist">了解更多</a>
+								<a href="">了解更多</a>
 							</p>
 
 						</div>
@@ -116,7 +116,7 @@
 							<p>书卷多情似故人，晨昏忧乐每相亲</p>
 							<br>
 							<p>
-								<a href="loggerlist.jsp">了解更多</a>
+								<a href="">了解更多</a>
 							</p>
 						</div>
 					</div>
@@ -252,7 +252,7 @@
 										alt="Free Bootstrap Template by sc.chinaz.com">
 								</figure>
 								<blockquote class="quote">
-									&ldquo;它与空气混同为一。在建筑艺术时代，思想曾比作大山，强有力地紧紧握住一个时代。&rdquo; <cite class="author"> &mdash; <span>Mike
+									&ldquo;强有力地紧紧握住一个时代。&rdquo; <cite class="author"> &mdash; <span>Mike
 											Fisher</span></cite>
 								</blockquote>
 							</div>
@@ -265,7 +265,7 @@
 										alt="Free Bootstrap Template by sc.chinaz.com">
 								</figure>
 								<blockquote class="quote">
-									&ldquo;我并不愿意你受的苦比我受的还大，希斯克利夫。我只愿我们永远不分离:如果我有一句话使你今后难过，想想我在地下也感到一样的难过，看在我自己的份上，饶恕我吧!&rdquo; <cite class="author"> &mdash;<span>Jorge
+									&ldquo;我并不愿意你受的苦比我受的还大&rdquo; <cite class="author"> &mdash;<span>Jorge
 											Smith</span></cite>
 								</blockquote>
 							</div>
@@ -277,7 +277,7 @@
 										alt="Free Bootstrap Template by sc.chinaz.com">
 								</figure>
 								<blockquote class="quote">
-									&ldquo;它只是拉着小船向浩渺的海面缓缓游去。整个白天在奇怪的旅行中度过了。同时，他对鱼也产生了奇怪的感情，他欣赏鱼的勇气和聪明。夜里，老人很疲乏，他希望自己能睡上一会儿。&rdquo; <cite class="author">&mdash; <span>Brandon
+									&ldquo;它只是拉着小船向浩渺的海面缓缓游去。&rdquo; <cite class="author">&mdash; <span>Brandon
 											White</span></cite>
 								</blockquote>
 							</div>
