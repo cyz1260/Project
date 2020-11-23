@@ -21,13 +21,13 @@ input:focus {
 	font-size: 16px;
 	background: none;
 	border: none;
-	border-bottom: 1px solid black;
-	color: balck;
+	border-bottom: 1px solid #FFF;
+	color: #FFF;
 	margin-bottom: 20px;
 }
 
 .form {
-	color: black;
+	color: #FFF;
 }
 
 .confirm {
@@ -40,9 +40,9 @@ input:focus {
 	width: 120px;
 	height: 40px;
 	border: 1px solid black;
-	background-color: black;
+	background-color: #FFF;
 	font-size: 18px;
-	color: #FFF;
+	color: BLACK;
 	cursor: pointer;
 	margin-top: 10px;
 	font-family: "neo";
@@ -112,10 +112,10 @@ input:focus {
 	}
 </script>
 
-<title>海绵公益 注册</title>
+<title>奶油书店 注册</title>
 <body>
 	<div id="bg"
-		style="background-image: url(../images/chen6.jpg); background-size: cover;">
+		style="background-image: url(../images/222.jpg); background-size: cover;">
 		<div id="login_wrap">
 			<div id="login">
 
@@ -157,7 +157,7 @@ input:focus {
 			<div id="img">
 				<!-- 图片绘制框 -->
 
-				<img src="../images/chen7.jpg"
+				<img src="../images/222.jpg"
 					style="width: 100%; height: 550px; float: left; position: relative;">
 			</div>
 

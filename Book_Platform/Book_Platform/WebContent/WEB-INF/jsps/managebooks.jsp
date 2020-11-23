@@ -103,9 +103,11 @@
 						<form style="margin-bottom: 0px;" action="<%=request.getContextPath()%>/user/updateonebook" onsubmit="return submit_update()">
 						<img
 							style="height: 70px; width: 70px;"
-							src="<%=request.getContextPath()%>/${bl.sbookimga}" /> <img
+							src="<%=request.getContextPath()%>/${bl.sbookimga}" /> 
+						<img
 							style="height: 70px; width: 70px;"
-							src="<%=request.getContextPath()%>/${bl.sbookimgb}" />
+							src="<%=request.getContextPath()%>/${bl.sbookimgb}"
+							alt="用户未上传图片"/>
 						</td>
 						<td style="text-align: center; padding: 0px 0px;"><input style="padding: 0px 0px;margin-left:-13px; margin-bottom: 0px;height: 30px; line-height: 0px;width: 100px;text-align: center;" name="sbookname" value="${bl.sbookname}"></td>
 						<td style="text-align: center; padding: 0px 0px;"><input style="padding: 0px 0px;margin-left:-13px; margin-bottom: 0px;height: 30px; line-height: 0px;width: 100px;text-align: center;" name="sbookprice" value="${bl.sbookprice}"></td>

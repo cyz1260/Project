@@ -1,7 +1,11 @@
 package com.niit.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,8 +35,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/adminlogin",method = RequestMethod.POST)
-	public String AdminLogin(String adminid,String adminpassword,Map<String,Object> data) {
+	public String AdminLogin(String adminid,String adminpassword,Map<String,Object> data,HttpServletResponse response) throws IOException {
 		Admin admin = adminService.AdminLogin(adminid);
+		if (admin == null) {
+			response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language=\"javascript\">alert('该账号尚未注册！')</script>");
+            return null;
+		}
 		if (admin.getAdminpassword().equals(adminpassword)) {
 			data.put("admin",admin);
 			return"adminindex";

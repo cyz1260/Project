@@ -70,6 +70,13 @@ public class UserController {
 	@RequestMapping(value = "/userlogin",method = RequestMethod.POST)
 	public String UserLogin(String userid,String userpassword,Map<String, Object> data,HttpServletResponse response) throws IOException {
 		User user = userService.UserLogin(userid);
+		if (user == null) {
+			response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language=\"javascript\">alert('该账号尚未注册！')</script>");
+            return null;
+		}
+		
 		if (user.getUserpassword().equals(userpassword) && user.getUserstate().equals("禁用")) {
 			data.put("user", user);
 			return "main";

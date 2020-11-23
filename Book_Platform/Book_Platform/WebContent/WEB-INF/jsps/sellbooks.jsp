@@ -78,7 +78,7 @@
 		<!-- end s-header -->
 
 		<div
-			style="width: 900px; height: 750px; margin-left: 450px; overflow: auto;">
+			style="width: 900px; height: 750px; margin-left: 450px;">
 
 			<h2
 				style="background-color: black; margin-top: 50px; color: #F7c45f; text-align: center;">图书出售</h2>
@@ -97,7 +97,8 @@
 				</select>
 				<label>书籍描述:</label>
 				<input style="height: 15px;" type="text" name="sbookdescription" required="required"/>
-				<label>书籍图片:</label> <input style="height: 15px;" type="file" name="file" multiple="" required="required"><br>
+				<label>书籍图片:</label> <input style="height: 15px;" type="file" name="file" multiple="" required="required">
+				<p>注意：必须上传两张图片</p>
 				<input type="hidden" name="userid" value="${userid}">
 				<input type="submit" value="上传" />
 				</form>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>海绵公益登录</title>
+<title>奶油书店管理员登录</title>
 <!-- For-Mobile-Apps-and-Meta-Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,9 +31,9 @@
 				<form action="<%=request.getContextPath()%>/admin/adminlogin"
 					method="post">
 					<p style="color: #E19E57;" for="userid">
-						账&nbsp;&nbsp;&nbsp;号：<input type="text" name="adminid" /> <br>
+						账&nbsp;&nbsp;&nbsp;号：<input type="text" name="adminid" required="required"/> <br>
 						<label for="password">密&nbsp;&nbsp;&nbsp;码：</label> <input
-							name="adminpassword" type="password" />
+							name="adminpassword" type="password" required="required" />
 					</p>
 					<input name="Submits" type="submit" value="登录" />
 
