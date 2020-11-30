@@ -139,7 +139,6 @@ public class UserController {
 		}
 	}
 	
-	
 	@RequestMapping("/findusersellbooks")
 	public String FindUserSellBooks(String userid,Model model) {
 		List<SBookList> sbookList = userService.SelectUserSellBooks(userid);
@@ -147,7 +146,6 @@ public class UserController {
 		model.addAttribute("userid", userid);
 		return"managebooks";
 	}
-	
 	
 	@RequestMapping("/updateonebook")
 	public String UpdateOneBook(String sbookname,String sbookprice,String sbookid,String userid) {
@@ -174,7 +172,6 @@ public class UserController {
 		userService.DeleteOrders(orderid);
 		return "redirect:/user/findallorders?userid="+userid;
 	}
-	
 	
 	@RequestMapping("/gosellbooks")
 	public String GoSellBooks(String userid,Map<String, Object> data) {

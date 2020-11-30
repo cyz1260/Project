@@ -134,11 +134,11 @@ input:focus {
 							用户名：<input type="text" name="username" required="required"><br>
 							<br>
 						</p>
-						<p style="margin-left: -300px;">性别：</p>
+						<p style="margin-left: -300px; color: #FFF;">性别：</p>
 						<br>
 						<p>
 							<input type="radio" name="gender" value="男" checked="" required="required"
-								style="width: 50px; height: 18px">男 <input type="radio"
+								style="width: 50px; height: 18px; font:#FFF;">男 <input type="radio"
 								name="gender" value="女" style="width: 50px; height: 18px" required="required">女
 						</p>
 						<br>

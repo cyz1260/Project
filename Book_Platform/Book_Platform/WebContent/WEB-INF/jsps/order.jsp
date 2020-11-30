@@ -123,17 +123,17 @@
 									style="float: left; margin-top: 5px; margin-left: 40px;">收件人名：</label>
 								<input id="input_ausername" class="form-control"
 									style="background: #FFF; width: 290px; margin-left: 170px; margin-top: 150px;"
-									type="text" name="ousername" value=""><br> <label
+									type="text" name="ousername" value="" required="required"><br> <label
 									class="form-check-label"
 									style="float: left; margin-top: 15px; margin-left: 40px;">联系方式：</label>
 								<input id="input_ausertel" class="form-control"
 									style="background: #FFF; width: 290px; margin-left: 170px; margin-top: 10px;"
-									type="text" name="ousertel" value=""><br> <label
+									type="text" name="ousertel" value="" required="required"><br> <label
 									class="form-check-label"
 									style="float: left; margin-top: 15px; margin-left: 40px;">收货地址：</label>
 								<input id="input_address" class="form-control"
 									style="background: #FFF; width: 290px; margin-left: 170px; margin-top: 10px;"
-									type="text" name="ouseraddress" value=""><br> 
+									type="text" name="ouseraddress" value="" required="required"><br> 
 								<input
 									class="btn btn-outline-success"
 									style="margin-left: 220px; margin-top: 50px;" type="submit"><br>

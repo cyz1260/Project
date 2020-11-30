@@ -25,7 +25,9 @@ public class BookShopController {
 	private AdminService adminService;
 	@Autowired
 	private UserService userService;
-
+	
+	
+	//搜索
 	@RequestMapping("/searchbooks")
 	public String SearchBooks(String sbookname,String userid,Model model) {
 		List<SBookList> sBookLists = bookShopService.SelectByBookname(sbookname);
